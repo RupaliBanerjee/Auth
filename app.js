@@ -55,8 +55,10 @@ app.post("/login",(req,res)=>{
     User.findOne({email:userName}).then((foundUser)=>{
         if(foundUser.password===password){
             res.render("secrets")
+        }else{
+            console.log("Wrong Password")
         }
-       console.log("Wrong Password")
+       
     }).catch((err)=>{
         console.log(err);
     })
